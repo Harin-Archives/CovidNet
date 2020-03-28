@@ -34,15 +34,6 @@ export default class Login extends Component {
         <KeyboardAvoidingView
         style={styles.KeyAvoid}
         behavior= {(Platform.OS === 'ios')? "padding" : null}>
-            <Image style={styles.logo} source={require('../img/Coronavirus.png')} />
-            <Text style={[styles.loginHeader, styles.textFont]}>User Login</Text>
-            <Text style={[styles.loginHeader, styles.textFont]}>User Password</Text>
-            <View style={styles.nextButtonWrapper}>
-              <Button title="Login"></Button>
-            </View>
-            <View style={styles.nextButtonWrapper}>
-              <Button title="Use Social Media"></Button>
-            </View>
       </KeyboardAvoidingView>
       </SafeAreaView>
     );
