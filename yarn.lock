@@ -2198,6 +2198,11 @@ destroy@~1.0.4:
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
 
+detect-browser@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/detect-browser/-/detect-browser-3.0.1.tgz#39beead014347a8a2be1f3c4cb30a0aef2127c44"
+  integrity sha512-L6b76EfUxnoxGHM5Vz7nrshQPIbOHtitDWpGufrp5srQdJrEYi1xpUVZeFbfssWAJvUWo/iDIVlz8hOP4Z8OCw==
+
 detect-newline@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
@@ -4594,6 +4599,32 @@ mkdirp@^0.5.1:
   dependencies:
     minimist "^1.2.5"
 
+mongodb-stitch-browser-core@^4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/mongodb-stitch-browser-core/-/mongodb-stitch-browser-core-4.8.0.tgz#5c1fba924c05835812fac65e5749eca476cb0ab9"
+  integrity sha512-tKzNW+w6VFQOS+opbC8lPjmgJx8H+/4s8qIwM2fcH+GUti+J6hcj3b8Eei7VcyHiWYNsS8S0cx+BypOmILhfeg==
+  dependencies:
+    bson "4.0.2"
+    detect-browser "^3.0.0"
+    mongodb-stitch-core-sdk "^4.8.0"
+    whatwg-fetch "^3.0.0"
+
+mongodb-stitch-browser-sdk@^4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/mongodb-stitch-browser-sdk/-/mongodb-stitch-browser-sdk-4.8.0.tgz#a70d456024f815db76b2853bc68b7c21c48981bc"
+  integrity sha512-+u5OOwxhGFee2JiS/ocVqR4OQw5wEKCH99w0CJz9l5NqNpQeR1VZRt9HmMLk7k9fn4/LaL5QcdalzA9YA+T8eA==
+  dependencies:
+    mongodb-stitch-browser-core "^4.8.0"
+    mongodb-stitch-browser-services-mongodb-remote "^4.8.0"
+
+mongodb-stitch-browser-services-mongodb-remote@^4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/mongodb-stitch-browser-services-mongodb-remote/-/mongodb-stitch-browser-services-mongodb-remote-4.8.0.tgz#3f985a6f347b863d59250dd81c9530a3d4856959"
+  integrity sha512-LPtuOufHKzrATNJB+DAdK0LYRvoVaAI+3Oobqx9FI9WAjNY22lwHiJQ7FBFejSEz1YL7Nap6f7Z2P2DlYr0WsA==
+  dependencies:
+    mongodb-stitch-browser-core "^4.8.0"
+    mongodb-stitch-core-services-mongodb-remote "^4.8.0"
+
 mongodb-stitch-core-sdk@^4.8.0:
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/mongodb-stitch-core-sdk/-/mongodb-stitch-core-sdk-4.8.0.tgz#3fbb5a9c46f8af5837aa9d71f4def79850df9d58"
@@ -5256,6 +5287,11 @@ react-native-elements@^1.2.7:
     react-native-ratings "^6.3.0"
     react-native-status-bar-height "^2.2.0"
 
+react-native-fbsdk@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-fbsdk/-/react-native-fbsdk-1.1.2.tgz#4264903add869d05b84ef55ade9ff720c2957781"
+  integrity sha512-Sp+oja868QVsB5vpEFbwZkEcCJOSBuZgh7UGJzUhaoTCs/zwSUHA6b4QichM7GiTxtQyKfT/F31DtvLj2N/qAQ==
+
 react-native-gesture-handler@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.6.1.tgz#678e2dce250ed66e93af409759be22cd6375dd17"
@@ -5265,6 +5301,11 @@ react-native-gesture-handler@^1.6.1:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.4"
     prop-types "^15.7.2"
+
+react-native-maps@0.27.1:
+  version "0.27.1"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.27.1.tgz#2f10cd417bb2fd938c9e015b1c9b6d9b1a44b97f"
+  integrity sha512-HygBkZBecTnIVRYrSiLRAvu4OmXOYso/A7c6Cy73HkOh9CgGV8Ap5eBea24tvmFGptjj5Hg8AJ94/YbmWK1Okw==
 
 react-native-ratings@^6.3.0:
   version "6.5.0"

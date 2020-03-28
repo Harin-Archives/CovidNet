@@ -13,7 +13,12 @@ import {
 } from 'react-native';
 import colors from '../styles/color';
 import {Card, Button} from 'react-native-elements';
-import {Stitch, AnonymousCredential} from 'mongodb-stitch-react-native-sdk';
+import {
+  Stitch,
+  FacebookRedirectCredential,
+  FacebookCredential,
+} from 'mongodb-stitch-react-native-sdk';
+import {LoginButton, AccessToken, LoginManager} from 'react-native-fbsdk';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -38,16 +43,57 @@ export default class App extends React.Component {
     }
 
     return (
-      <SafeAreaView
-      style={styles.GrandView}>
+      <SafeAreaView style={styles.GrandView}>
         <KeyboardAvoidingView
-        style={styles.KeyAvoid}
-        behavior= {(Platform.OS === 'ios')? "padding" : null}>
-          <Image style={styles.logo} source={require('../img/Coronavirus.png')} />
+          style={styles.KeyAvoid}
+          behavior={Platform.OS === 'ios' ? 'padding' : null}>
+          <Image
+            style={styles.logo}
+            source={require('../img/Coronavirus.png')}
+          />
           <View style={styles.nextButtonWrapper}>
-            <Button style={styles.login} onPress={this._onPressLogin} title="Login" />
+            <LoginButton
+              permissions={['user_friends']}
+              publishPermissions={['email']}
+              onLoginFinished={(error, result) => {
+                if (error) {
+                  //alert('Login failed with error: ' + error.message);
+                } else if (result.isCancelled) {
+                  //alert('Login was cancelled');
+                } else {
+                  //alert('Login was successful with permissions: ' + result.grantedPermissions);
+                  AccessToken.getCurrentAccessToken().then(data => {
+                    console.log(data.accessToken.toString());
+                    this.state.client.auth
+                      .loginWithCredential(
+                        new FacebookCredential(data.accessToken),
+                      )
+                      .then(user => {
+                        console.log(
+                          `Successfully logged in as user ${user.id}`,
+                        );
+                        this.setState({currentUserId: user.id});
+                        this.state.client
+                          .callFunction('CreateUser')
+                          .then(result => {
+                            console.log(`Function Result: ${result}`);
+                          });
+                        this.props.navigation.reset({
+                          index: 0,
+                          routes: [{name: 'Home'}],
+                        });
+                      })
+                      .catch(err => {
+                        console.log(`Failed to log in anonymously: ${err}`);
+                        this.setState({currentUserId: undefined});
+                      });
+                  });
+                }
+              }}
+              onLogoutFinished={() => console.log("logged out")}
+            />
           </View>
-      </KeyboardAvoidingView>
+        </KeyboardAvoidingView>
       </SafeAreaView>
     );
   }
@@ -59,36 +105,44 @@ export default class App extends React.Component {
 
         if (client.auth.isLoggedIn) {
           this.setState({currentUserId: client.auth.user.id});
+          this.props.navigation.reset({
+            index: 0,
+            routes: [{name: 'Home'}],
+          });
         }
       });
     } else {
       var client = Stitch.getAppClient('covidnet-ytftr');
-      this.setState({client})
+      this.setState({client});
 
       if (client.auth.isLoggedIn) {
         this.setState({currentUserId: client.auth.user.id});
+        this.props.navigation.reset({
+          index: 0,
+          routes: [{name: 'Home'}],
+        });
       }
     }
   }
 
   _onPressLogin() {
-    this.state.client.auth
+    /*this.state.client.auth
       .loginWithCredential(new AnonymousCredential())
       .then(user => {
         console.log(`Successfully logged in as user ${user.id}`);
         this.setState({currentUserId: user.id});
-        this.state.client.callFunction("CreateUser", ["Hello world!"]).then(echoedResult => {
-          console.log(`Echoed result: ${echoedResult}`);
+        this.state.client.callFunction("CreateUser").then(result => {
+          console.log(`Function Result: ${result}`);
         })
-        /*this.props.navigation.reset({
+        this.props.navigation.reset({
           index: 0,
           routes: [{name: 'Home'}],
-        });*/
+        });
       })
       .catch(err => {
         console.log(`Failed to log in anonymously: ${err}`);
         this.setState({currentUserId: undefined});
-      });
+      });*/
   }
 }
 
@@ -104,7 +158,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: '8%',
     paddingRight: '8%',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
   },
   logo: {
     width: '80%',
@@ -116,7 +170,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     flex: 1,
   },
-  nextButtonWrapper:{
+  nextButtonWrapper: {
     flex: 1,
   },
 });
