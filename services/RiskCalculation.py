@@ -79,36 +79,22 @@ for user in users.find({}):
             # print(CovidNetPtg)
             # print("END")
             if (OfficialPtg > 0 and SymptomStatusPtg > 0 and CovidNetPtg > 0):
-                print(userID + " 1")
-                print("Risk On: " + str(log["Date"]))
+                print(userID + " 1 " + "Risk On: " + str(log["Date"]) + " " + str(math.pow(OfficialPtg, (1/4)) * math.sqrt(SymptomStatusPtg) * math.sqrt(CovidNetPtg)))
                 print(math.pow(OfficialPtg, (1/4)) * math.sqrt(SymptomStatusPtg) * math.sqrt(CovidNetPtg))
             elif (OfficialPtg > 0 and SymptomStatusPtg > 0):
-                print(userID + " 2")
-                print("Risk On: " + str(log["Date"]))
-                print(math.sqrt(OfficialPtg) * math.sqrt(SymptomStatusPtg))
+                print(userID + " 2 " + "Risk On: " + str(log["Date"]) + " " + str(math.pow(OfficialPtg, (1/4)) * math.sqrt(SymptomStatusPtg)))
             elif (OfficialPtg > 0 and CovidNetPtg > 0):
-                print(userID + " 3")
-                print("Risk On: " + str(log["Date"]))
-                print(math.sqrt(OfficialPtg) * math.sqrt(CovidNetPtg))
+                print(userID + " 3 " + "Risk On: " + str(log["Date"]) + " " + str(math.pow(OfficialPtg, (1/4)) * math.sqrt(CovidNetPtg)))
             elif (SymptomStatusPtg > 0 and CovidNetPtg > 0):
-                print(userID + " 4")
-                print("Risk On: " + str(log["Date"]))
-                print(math.sqrt(SymptomStatusPtg) * math.sqrt(CovidNetPtg))
+                print(userID + " 4 " + "Risk On: " + str(log["Date"]) + " " + str(math.sqrt(SymptomStatusPtg) * math.sqrt(CovidNetPtg)))
             elif (OfficialPtg > 0):
-                print(userID + " 5")
-                print("Risk On: " + str(log["Date"]))
-                print(math.sqrt(OfficialPtg))
+                print(userID + " 5 " + "Risk On: " + str(log["Date"]) + " " + str(math.pow(OfficialPtg, (1/4))))
             elif (SymptomStatusPtg > 0):
-                print(userID + " 6")
-                print("Risk On: " + str(log["Date"]))
-                print(math.sqrt(SymptomStatusPtg))
+                print(userID + " 6 " + "Risk On: " + str(log["Date"]) + " " + str(math.sqrt(SymptomStatusPtg)))
             elif (CovidNetPtg > 0):
-                print(userID + " 7")
-                print("Risk On: " + str(log["Date"]))
-                print(math.sqrt(CovidNetPtg))
+                print(userID + " 7 " + "Risk On: " + str(log["Date"]) + " " + str(math.sqrt(CovidNetPtg)))
             else:
-                print("Risk On: " + str(log["Date"]))
-                print(0)
+                print(userID + " 8 " + "Risk On: " + str(log["Date"]) + " No Update")
 
             if OfficialPtg > 0 and not FalseArea:
                 if SymptomStatusPtg > 0:
