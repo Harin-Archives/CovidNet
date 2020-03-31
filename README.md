@@ -1,8 +1,20 @@
 # CovidNet
 **PROBLEM**
+
 Coronavirus, COVID-19
 
+
+
+
+
+
+
+
+
+---------------------------------------------------------------
+
 **Current Solutions**
+
 Similar apps exist
 - http://safepaths.mit.edu/
 - COVID Symptom Tracker by ZOE (UK)
@@ -10,6 +22,14 @@ Similar apps exist
 - Nation Wide Surveillence
 
 BUT none of them provide the user with daily updated risks, and that's the key. It is ultimately up to the users that have it to know they do, so that they can stay home. The rest of the world does not need to know. All efforts above may be secure, but they ultimately send data to a destination anonymously to provide generic data for everyone. CovidNet provides customized data to the individual.
+
+
+
+
+
+
+
+---------------------------------------------------------------
 
 **Example Situation**
 NOTE: This is in no way an alterative for official medical tests, nor is it a guaranteed indicator of COVID-19. This is merely a tool, when used correctly by communites, to alert asymptomatic carriers and provide ease to those showing extremely mild (potentially placebo) symptoms. 
@@ -44,6 +64,16 @@ Without the app, 1, 3, 4, 5 could be out in public thinking they don’t have it
 NOTE: The drawback is this relies on
 A) Users to stay home when they’re classed as high risk
 B) Users providing the data and taking 30 seconds a day to report symptoms and roughly where they were
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------
 
 **Considerations**
 This raises two groups of people that the app will ignore.
