@@ -32,6 +32,7 @@ BUT none of them provide the user with daily updated risks, and that's the key. 
 ---------------------------------------------------------------
 
 **Example Situation**
+
 NOTE: This is in no way an alterative for official medical tests, nor is it a guaranteed indicator of COVID-19. This is merely a tool, when used correctly by communites, to alert asymptomatic carriers and provide ease to those showing extremely mild (potentially placebo) symptoms. 
 
 March 10th:
@@ -76,6 +77,7 @@ B) Users providing the data and taking 30 seconds a day to report symptoms and r
 ---------------------------------------------------------------
 
 **Considerations**
+
 This raises two groups of people that the app will ignore.
 - Those who choose to go out even after a high risk classification. These people can be grouped with the people that don’t use the app at all. Although they are being a risk to everyone, the app is unable to fix that problem. The app can’t fix any problems. ITS SOLE PURPOSE IS TO GUIDE PEOPLE TOWARDS A BETTER UNDERSTANDING OF THE SITUATION AND INFER IF YOUR PROBABILITY OF HAVING IT.
 - Those who listen and are already staying home and are prepared to do so for months. These people can be grouped with those who are already diagnosed and don’t have the ability to use apps, let alone be out in public spreading. These people are under control and are not contributing to further spread.
